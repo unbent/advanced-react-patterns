@@ -1,4 +1,11 @@
 <div>
+  <h1>--------------Read This First---------------</h1>
+  <p>
+  The purpose of forking this repo is so that I have a log of all the work I have done for the Epic React course. Feel free to look at how I solve problems, and watch as I improve! This is the React Hooks portion of the course.
+  </p>
+  <h1>--------------------------------------------</h1>
+</div>
+<div>
   <h1 align="center"><a href="https://www.epicreact.dev/modules/advanced-react-patterns-v1/advanced-react-patterns-welcome">🤯 Advanced React Patterns 🚀 EpicReact.Dev</a></h1>
   <strong>
     Learn how to build simple and flexible React Components and Hooks using
