@@ -26,7 +26,13 @@ function Toggle({children, ...props}) {
 // 💰 `const context = React.useContext(ToggleContext)`
 
 function useToggle() {
-  return React.useContext(ToggleContext);
+  const context = React.useContext(ToggleContext);
+
+  if(context === undefined) {
+    throw new Error('Must be within <Toggle> to function');
+  } else {
+    return context;
+  }
 }
 
 // 📜 https://react.dev/reference/react/useContext
