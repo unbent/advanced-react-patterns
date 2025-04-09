@@ -50,6 +50,19 @@ function useToggle({
     )
   }, [onIsControlled, hasOnChange, readOnly])
 
+
+  const {current: onWasControlled} = React.useRef(onIsControlled);
+  React.useEffect(() => {
+    warning(
+      !(onIsControlled && !onWasControlled),
+      `\`useToggle\` is changing from uncontrolled to be controlled. Components should not switch from uncontrolled to controlled (or vice versa). Decide between using a controlled or uncontrolled \`useToggle\` for the lifetime of the component. Check the \`on\` prop.`,
+    )
+    warning(
+      !(!onIsControlled && onWasControlled),
+      `\`useToggle\` is changing from controlled to be uncontrolled. Components should not switch from controlled to uncontrolled (or vice versa). Decide between using a controlled or uncontrolled \`useToggle\` for the lifetime of the component. Check the \`on\` prop.`,
+    )
+  }, [onWasControlled, onIsControlled])
+
   // We want to call `onChange` any time we need to make a state change, but we
   // only want to call `dispatch` if `!onIsControlled` (otherwise we could get
   // unnecessary renders).
